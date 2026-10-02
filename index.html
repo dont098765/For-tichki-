@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 21st Birthday, Dhiraj ❤️</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Georgia,"Times New Roman",serif;color:#5b1730;
+  background:linear-gradient(135deg,#ffdbe7,#fff1f5 45%,#f8c3d4);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.heart{position:fixed;color:#e85b83;font-size:22px;animation:float 7s linear infinite;opacity:.55;z-index:0}
+.h1{left:7%;top:20%;animation-delay:-2s}.h2{right:8%;top:45%;animation-delay:-5s}.h3{left:12%;bottom:12%;animation-delay:-1s}.h4{right:14%;bottom:22%;animation-delay:-4s}
+@keyframes float{0%{transform:translateY(20px) rotate(0);opacity:0}20%{opacity:.55}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+
+.page{min-height:100vh;padding:28px 18px 55px;display:flex;align-items:center;justify-content:center;position:relative}
+.card{width:min(760px,100%);position:relative;z-index:1}
+.panel{
+  background:rgba(255,248,250,.88);border:1px solid rgba(190,65,105,.15);
+  border-radius:30px;padding:30px 22px;box-shadow:0 18px 50px rgba(130,30,70,.14);
+  backdrop-filter:blur(8px);text-align:center;margin-bottom:24px;
+}
+.cover{padding:22px 18px 30px}
+.cover-photo{
+  width:100%;height:55vh;min-height:360px;max-height:560px;object-fit:cover;
+  border-radius:24px;box-shadow:0 12px 30px rgba(80,20,40,.22);
+}
+h1{font-size:clamp(2.1rem,8vw,4rem);line-height:1.02;margin:24px 0 10px;color:#9f2450}
+.subtitle{font-size:1.05rem;margin:0 0 12px;color:#8c4260}
+.scroll{display:inline-block;margin-top:8px;padding:11px 22px;border-radius:30px;background:#d94f76;color:white;text-decoration:none;font-weight:bold}
+
+.polaroids{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.photo-card{background:white;padding:9px 9px 18px;box-shadow:0 9px 22px rgba(90,20,50,.16);transform:rotate(-2deg)}
+.photo-card:nth-child(2){transform:rotate(2deg)}
+.photo-card img{width:100%;height:260px;object-fit:cover;display:block}
+.photo-card span{display:block;margin-top:10px;font-size:.9rem;color:#7e3551}
+
+.message{text-align:left;line-height:1.75;font-size:1.03rem}
+.message h2{text-align:center;color:#a72d55;margin-top:0}
+.message p{margin:0 0 15px}
+
+.gift-wrap{text-align:center}
+.gift{
+  width:190px;height:145px;margin:20px auto;position:relative;cursor:pointer;
+  filter:drop-shadow(0 12px 15px rgba(100,20,50,.18));transition:.25s;
+}
+.gift:hover{transform:translateY(-5px) scale(1.03)}
+.box{position:absolute;left:15px;right:15px;bottom:0;height:105px;background:#e85c82;border-radius:8px}
+.lid{position:absolute;left:5px;right:5px;top:20px;height:38px;background:#f17497;border-radius:7px;z-index:3}
+.ribbon-v{position:absolute;left:77px;top:20px;width:36px;height:125px;background:#ffd1df;z-index:4}
+.ribbon-h{position:absolute;left:0;right:0;top:53px;height:25px;background:#ffd1df;z-index:4}
+.bow:before,.bow:after{content:"";position:absolute;top:0;width:45px;height:35px;background:#ffb2c9;border-radius:80% 15% 80% 15%;z-index:5}
+.bow:before{left:55px;transform:rotate(25deg)}.bow:after{right:55px;transform:scaleX(-1) rotate(25deg)}
+.gift-title{font-size:1.5rem;font-weight:bold;margin:0 0 4px}.hint{margin:0;color:#8c4260}
+
+.question{display:none;margin-top:18px;padding:22px;background:#fff3f7;border-radius:22px}
+.question.show{display:block}
+.question label{display:block;font-weight:bold;font-size:1.1rem;margin-bottom:12px}
+input{
+  width:100%;padding:14px 16px;border:2px solid #efabc1;border-radius:16px;
+  outline:none;font-size:1rem;background:white;color:#5b1730;
+}
+input:focus{border-color:#d94f76}
+button,.listen{
+  border:0;background:#d94f76;color:white;padding:13px 24px;border-radius:25px;
+  font-size:1rem;font-weight:bold;cursor:pointer;margin-top:12px;text-decoration:none;display:inline-block;
+}
+.error{color:#c52e56;margin:9px 0 0;display:none}.error.show{display:block}
+.reveal{display:none;margin-top:28px}.reveal.show{display:block;animation:fadeUp .7s ease}
+.reveal-photo{width:100%;max-height:430px;object-fit:cover;border-radius:22px;margin:8px 0 20px}
+.song-title{font-size:1.8rem;color:#a72d55;margin:5px 0 8px}
+.small{font-size:.92rem;color:#8c4260}
+
+@media(max-width:560px){
+  .page{padding:18px 12px 40px}.panel{padding:22px 16px;border-radius:24px}
+  .cover-photo{height:52vh;min-height:330px}
+  .polaroids{grid-template-columns:1fr;gap:22px}
+  .photo-card img{height:330px}
+  .message{font-size:1rem}
+}
+
+.gift-photo-bg{
+  background:
+    linear-gradient(rgba(255,215,228,.68),rgba(255,215,228,.78)),
+    url("gift-bg.jpg") center/cover no-repeat;
+  background-blend-mode:screen;
+}
+.opened-gift{
+  position:relative;width:min(430px,92%);height:270px;margin:22px auto 6px;
+}
+.opened-box{
+  position:absolute;left:12%;right:12%;bottom:8px;height:135px;
+  background:#e85c82;border-radius:8px;
+  box-shadow:0 15px 28px rgba(80,20,40,.2);
+}
+.opened-box:before{
+  content:"";position:absolute;left:43%;top:0;width:14%;height:100%;
+  background:#ffd1df;
+}
+.opened-lid{
+  position:absolute;left:7%;right:7%;top:68px;height:42px;
+  background:#f17497;border-radius:7px;transform:rotate(-5deg);
+  box-shadow:0 8px 15px rgba(80,20,40,.15);
+}
+.opened-lid:before{
+  content:"";position:absolute;left:44%;top:0;width:12%;height:100%;background:#ffd1df;
+}
+.opened-ribbon{
+  position:absolute;left:45%;bottom:8px;width:10%;height:135px;background:#ffd1df;
+}
+.song-inside{
+  position:absolute;left:50%;top:10px;transform:translateX(-50%);
+  width:86%;padding:13px 12px 16px;background:rgba(255,244,248,.97);
+  border-radius:18px;box-shadow:0 8px 22px rgba(80,20,40,.2);
+}
+.song-inside .song-title{font-size:1.45rem;margin:0 0 4px}
+.song-inside .listen{margin-top:7px}
+
+.hidden-gift{display:none}
+.hidden-gift.show-gift{display:block;animation:giftPop .65s cubic-bezier(.2,.9,.2,1)}
+.gift-ready{display:none;margin:2px 0 0;font-weight:bold;color:#9f2450}
+.gift-ready.show-ready{display:block;animation:fadeUp .5s ease}
+.gift-tap{
+  position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
+  white-space:nowrap;font-size:.95rem;color:#8c4260;font-weight:bold;
+}
+@keyframes giftPop{
+  0%{transform:scale(.2) translateY(25px);opacity:0}
+  70%{transform:scale(1.08) translateY(-4px);opacity:1}
+  100%{transform:scale(1) translateY(0);opacity:1}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.reveal{position:relative;overflow:hidden}
+.song-card{
+  position:relative;z-index:2;padding:28px 18px 32px;
+  border-radius:24px;background:rgba(255,244,248,.96);
+  box-shadow:0 12px 30px rgba(100,20,50,.15);
+}
+.sparkle{font-size:1.5rem;letter-spacing:8px;color:#e85c82;margin-bottom:10px}
+.celebration{position:absolute;inset:0;pointer-events:none;z-index:3}
+.celebrate-heart,.celebrate-spark{
+  position:absolute;left:50%;top:48%;font-size:24px;
+  animation:burst 1.5s ease-out forwards;
+}
+@keyframes burst{
+  0%{transform:translate(-50%,-50%) scale(.2) rotate(0);opacity:0}
+  15%{opacity:1}
+  100%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.15) rotate(var(--r));opacity:0}
+}
+
+
+.memory-gallery{margin-top:34px;padding-top:8px;display:none}
+.memory-gallery h2{text-align:center;color:#a72d55;margin:0 0 7px;font-size:1.65rem}
+.memory-gallery .gallery-sub{text-align:center;color:#8c4260;margin:0 0 18px;font-size:.98rem}
+.memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.memory-card{background:#fff;padding:8px 8px 12px;border-radius:5px;box-shadow:0 8px 20px rgba(90,20,50,.15)}
+.memory-card:nth-child(odd){transform:rotate(-1.2deg)}
+.memory-card:nth-child(even){transform:rotate(1.2deg)}
+.memory-card img{width:100%;height:260px;object-fit:cover;display:block;border-radius:3px}
+.memory-card.memory-tall img{height:330px}
+.memory-card.memory-wide img{height:220px}
+.memory-card span{display:block;text-align:center;margin-top:8px;color:#8c4260;font-size:.84rem}
+@media(max-width:560px){.memory-grid{grid-template-columns:1fr;gap:20px}.memory-card img,.memory-card.memory-tall img,.memory-card.memory-wide img{height:auto;max-height:520px;object-fit:contain}}
+
+
+/* Opening celebration */
+.launch-celebration{
+  position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;
+}
+.launch-piece{
+  position:absolute;left:50%;top:46%;font-size:clamp(22px,7vw,42px);
+  opacity:0;will-change:transform,opacity;
+  animation:launchBurst 1.9s cubic-bezier(.16,.78,.2,1) forwards;
+  filter:drop-shadow(0 3px 5px rgba(120,20,60,.18));
+}
+@keyframes launchBurst{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.15) rotate(0deg)}
+  8%{opacity:1}
+  55%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(var(--scale)) rotate(var(--rot));}
+}
+.firework-burst{
+  position:absolute;left:var(--fx);top:var(--fy);width:8px;height:8px;border-radius:50%;
+  background:#fff;box-shadow:0 0 12px 4px rgba(255,255,255,.9);
+  animation:fireworkFade .9s ease-out forwards;
+}
+.firework-burst:before,.firework-burst:after{
+  content:'';position:absolute;inset:50%;width:4px;height:4px;border-radius:50%;
+  background:#e85c82;box-shadow:
+    0 -55px 0 1px #f17497, 0 55px 0 1px #d94f76,
+    55px 0 0 1px #ffd166, -55px 0 0 1px #ff9fc0,
+    39px 39px 0 1px #c86bfa, -39px 39px 0 1px #7dd3fc,
+    39px -39px 0 1px #ffb86b, -39px -39px 0 1px #9be28f;
+  transform:translate(-50%,-50%) scale(.15);
+  animation:fireworkExpand .9s ease-out forwards;
+}
+.firework-burst:after{transform:translate(-50%,-50%) rotate(45deg) scale(.15);}
+@keyframes fireworkExpand{to{transform:translate(-50%,-50%) scale(1)}}
+@keyframes fireworkFade{0%{opacity:0}15%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.launch-piece,.firework-burst,.firework-burst:before,.firework-burst:after{animation-duration:.4s}}
+
+</style>
+</head>
+<body>
+<div class="launch-celebration" id="launchCelebration" aria-hidden="true"></div>
+<div class="heart h1">♥</div><div class="heart h2">♡</div><div class="heart h3">♥</div><div class="heart h4">♡</div>
+
+<section class="page">
+<div class="card">
+
+  <div class="panel cover">
+    <h1>Happy 21st Birthday, Dhiraj ❤️</h1>
+    <img class="cover-photo" src="photo1.jpg" alt="A photo of Dhiraj">
+    <p class="subtitle">A little message and a little surprise just for you ♡</p>
+    <a class="scroll" href="#message">Scroll down ↓</a>
+  </div>
+
+  <div class="panel" id="message">
+    <div class="polaroids">
+      <div class="photo-card"><img src="photo2.jpg" alt="Us together"><span>you + me ♡</span></div>
+      <div class="photo-card"><img src="photo3.jpg" alt="A memory together"><span>our little memories ♡</span></div>
+    </div>
+    <div class="message" style="margin-top:26px">
+      <h2>For you ❤️</h2>
+      <p>Another year of you, and somehow you still manage to make my world a little brighter. I’m so grateful for all the memories, the silly moments, the laughs, the fights and all the times we annoy each other. 😂❤️</p>
+      <p>We may fight, argue and sometimes drive each other crazy, but at the end of the day, I wouldn’t want to share all these moments with anyone else.</p>
+      <p>I hope this year brings you everything your heart wishes for, lots of happiness, success and many more beautiful moments for us to create together. 🫶🏻</p>
+      <p><b>Here’s to you, to us, our fights, our laughter, and many more years together. ❤️</b></p>
+    </div>
+  </div>
+
+
+  <div class="panel memory-gallery">
+    <h2>Our Little Memories ♡</h2>
+    <p class="gallery-sub">A few moments that I’ll always keep close to my heart 💗</p>
+    <div class="memory-grid">
+      <div class="memory-card"><img src="memory1.jpg" alt="A sweet little memory"><span>little moments ♡</span></div>
+      <div class="memory-card memory-tall"><img src="memory2.jpg" alt="A memory together"><span>just us 💗</span></div>
+      <div class="memory-card memory-wide"><img src="memory3.jpg" alt="A memory together"><span>one of my favourites ♡</span></div>
+      <div class="memory-card"><img src="memory4.jpg" alt="A memory together"><span>us, always ✨</span></div>
+      <div class="memory-card"><img src="memory5.jpg" alt="A memory together"><span>another little memory 💕</span></div>
+      <div class="memory-card"><img src="memory6.jpg" alt="A photo of Dhiraj"><span>you ♡</span></div>
+      <div class="memory-card memory-tall"><img src="memory7.jpg" alt="A photo of Dhiraj"><span>one more little memory ♡</span></div>
+      <div class="memory-card memory-tall"><img src="memory8.jpg" alt="A photo of Dhiraj"><span>another favourite 💗</span></div>
+      <div class="memory-card"><img src="memory9.jpg" alt="A new memory"><span>another little moment ♡</span></div>
+      <div class="memory-card"><img src="memory11.jpg" alt="A new memory together"><span>one more favourite ♡</span></div>
+      <div class="memory-card"><img src="memory12.jpg" alt="A new memory together"><span>our little world ✨</span></div>
+      <div class="memory-card"><img src="memory13.jpg" alt="A new memory"><span>another memory 💕</span></div>
+      <div class="memory-card"><img src="memory14.jpg" alt="A new memory"><span>always a favourite 💗</span></div>
+    </div>
+      <div class="memory-card memory-tall"><img src="memory15.jpg" alt="A special memory"><span>another favourite ♡</span></div>
+      <div class="memory-card memory-tall"><img src="memory16.jpg" alt="A special memory"><span>one more beautiful moment 💗</span></div>
+  </div>
+
+  <div class="panel gift-wrap gift-photo-bg" id="surprise">
+    <p class="gift-title">There’s a little surprise for you... 💗</p>
+    <p class="hint">But first... answer a question ❤️</p>
+
+    <div class="question show" id="question">
+      <label for="answer">Where did we meet for the first time?</label>
+      <input id="answer" type="text" placeholder="Type your answer..." autocomplete="off">
+      <br><button onclick="checkAnswer()">Open ✨</button>
+      <p class="error" id="error">Not quite... try again ❤️</p>
+    </div>
+
+    <div class="gift hidden-gift" id="gift" onclick="openGift()" aria-label="Open gift">
+      <div class="bow"></div><div class="lid"></div><div class="box"></div>
+      <div class="ribbon-v"></div><div class="ribbon-h"></div>
+      <div class="gift-tap">Tap me 💗</div>
+    </div>
+
+    <p class="gift-ready" id="giftReady">You got it! ✨ Now tap the gift... ❤️</p>
+  </div>
+
+  <div class="panel reveal" id="reveal">
+    <div class="celebration" id="celebration"></div>
+    <div class="song-card">
+      <div class="sparkle">✦ ✧ ✦</div>
+      <div class="song-title">Last but not the least… ❤️</div>
+      <div class="song-title" style="font-size:1.45rem">A song that reminds me of you 🐈‍⬛</div>
+      <p class="small">mere registaan ke phool 🌸</p>
+      <a class="listen" href="https://youtu.be/uq00EreNHYk?si=_b6n9fqDesxshYT2" target="_blank" rel="noopener">🎧 Listen to the song</a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+function showQuestion(){
+  document.getElementById('question').classList.add('show');
+  setTimeout(()=>document.getElementById('answer').focus(),80);
+}
+
+function checkAnswer(){
+  const value=document.getElementById('answer').value.trim().toLowerCase();
+  const error=document.getElementById('error');
+  const gift=document.getElementById('gift');
+  const ready=document.getElementById('giftReady');
+
+  if(value==='auditorium'){
+    error.classList.remove('show');
+    document.getElementById('question').style.display='none';
+    gift.classList.add('show-gift');
+    ready.classList.add('show-ready');
+    gift.scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    error.classList.add('show');
+  }
+}
+
+function openGift(){
+  const gift=document.getElementById('gift');
+  const giftPanel=document.getElementById('surprise');
+  const memories=document.querySelector('.memory-gallery');
+  const reveal=document.getElementById('reveal');
+
+  gift.style.pointerEvents='none';
+  gift.style.transform='scale(.92)';
+  createCelebration();
+
+  // The correct answer unlocks the gift; opening it reveals the memories.
+  setTimeout(()=>{
+    giftPanel.style.display='none';
+    memories.style.display='block';
+
+    // No automatic scrolling: the photos simply appear below.
+    // The final song reveal stays after the last photo.
+    setTimeout(()=>{
+      reveal.classList.add('show');
+    },700);
+  },650);
+}
+
+function createCelebration(){
+  const box=document.getElementById('celebration');
+  box.innerHTML='';
+  const symbols=['♥','♡','✦','✧','💗','✨'];
+  for(let i=0;i<28;i++){
+    const s=document.createElement('span');
+    s.className=(i%3===0)?'celebrate-spark':'celebrate-heart';
+    s.textContent=symbols[i%symbols.length];
+    s.style.setProperty('--x',`${Math.round(Math.random()*420-210)}px`);
+    s.style.setProperty('--y',`${Math.round(Math.random()*-300-40)}px`);
+    s.style.setProperty('--r',`${Math.round(Math.random()*120-60)}deg`);
+    s.style.animationDelay=`${Math.random()*0.35}s`;
+    box.appendChild(s);
+  }
+}
+
+document.getElementById('answer').addEventListener('keydown',e=>{
+  if(e.key==='Enter') checkAnswer();
+});
+
+function createOpeningCelebration(){
+  const layer=document.getElementById('launchCelebration');
+  if(!layer) return;
+  const pieces=['🎉','🎊','🎇','🎆','✨','💥','🥳','💗','✦'];
+  const origins=[
+    {x:'20%',y:'42%'},{x:'50%',y:'34%'},{x:'80%',y:'42%'}
+  ];
+  origins.forEach((o,oi)=>{
+    for(let j=0;j<12;j++){
+      const p=document.createElement('span');
+      p.className='launch-piece';
+      p.textContent=pieces[(oi*12+j)%pieces.length];
+      p.style.left=o.x; p.style.top=o.y;
+      const angle=(Math.PI*2*j/12)+(Math.random()-.5)*.3;
+      const distance=90+Math.random()*190;
+      p.style.setProperty('--x',`${Math.cos(angle)*distance}px`);
+      p.style.setProperty('--y',`${Math.sin(angle)*distance - 70}px`);
+      p.style.setProperty('--scale',`${.65+Math.random()*.75}`);
+      p.style.setProperty('--rot',`${Math.round(Math.random()*360-180)}deg`);
+      p.style.animationDelay=`${Math.random()*.45}s`;
+      layer.appendChild(p);
+    }
+  });
+
+  [
+    {x:'24%',y:'30%'},{x:'50%',y:'24%'},{x:'76%',y:'30%'}
+  ].forEach((o,i)=>{
+    const f=document.createElement('span');
+    f.className='firework-burst';
+    f.style.setProperty('--fx',o.x);
+    f.style.setProperty('--fy',o.y);
+    f.style.animationDelay=`${.25+i*.18}s`;
+    layer.appendChild(f);
+  });
+
+  setTimeout(()=>{layer.innerHTML='';},2600);
+}
+
+window.addEventListener('load',()=>{
+  setTimeout(createOpeningCelebration,180);
+});
+
+</script>
+</body>
+</html>
