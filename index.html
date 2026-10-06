@@ -341,7 +341,7 @@ function checkAnswer(){
   const gift=document.getElementById('gift');
   const ready=document.getElementById('giftReady');
 
-  if(value==='auditorium 3'){
+  if (answer.trim().toLowerCase() === "auditorium 3"){
     error.classList.remove('show');
     document.getElementById('question').style.display='none';
     gift.classList.add('show-gift');
